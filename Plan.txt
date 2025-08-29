@@ -1,0 +1,72 @@
+When you’re setting up **basic Google Cloud Platform (GCP) infrastructure**, you want the essential building blocks that nearly every environment
+needs before you can deploy apps, workloads, or services. Here’s a breakdown of the core components:
+
+---
+
+## 1. **Networking**
+
+* **VPC (Virtual Private Cloud)** – the backbone of your network where everything runs.
+* **Subnets** – carve up your VPC into smaller IP ranges (public / private).
+* **Firewall Rules** – control inbound/outbound traffic.
+* **Cloud Router + Cloud NAT** – allow private resources to access the internet without exposing them.
+
+---
+
+## 2. **Compute**
+
+* **Compute Engine (VMs)** – for virtual machines when you need raw compute.
+* **Instance Groups (MIGs)** – for autoscaling and high availability.
+* (Optional) **Kubernetes (GKE)** – if you’re containerized.
+
+---
+
+## 3. **Storage**
+
+* **Cloud Storage Buckets** – object storage for files, logs, backups, static content.
+* **Persistent Disks** – block storage attached to VMs.
+* (Optional) **Filestore** – managed NFS for shared file systems.
+
+---
+
+## 4. **Identity & Access**
+
+* **IAM (Identity and Access Management)** – define who can do what.
+* **Service Accounts** – for workloads like VMs or apps.
+* **Organization / Folders / Projects** – basic resource hierarchy.
+
+---
+
+## 5. **Monitoring & Logging**
+
+* **Cloud Logging** – capture logs from VMs, networks, and services.
+* **Cloud Monitoring (Stackdriver)** – metrics, dashboards, and alerts.
+
+---
+
+## 6. **Security & Policies**
+
+* **Encryption Keys (KMS)** – manage sensitive data.
+* **Security Command Center** (optional) – security posture management.
+* **VPC Service Controls** (optional) – isolate sensitive services.
+
+---
+
+## 7. **Optional but Common**
+
+* **Load Balancer** – distribute traffic across instances.
+* **DNS (Cloud DNS)** – domain name resolution.
+* **CDN (Cloud CDN)** – faster content delivery globally.
+* **Pub/Sub / Cloud Functions** – event-driven apps.
+* **BigQuery / Databases (Cloud SQL, Firestore, Spanner)** – for data persistence.
+
+---
+
+👉 In **Terraform**, the most *basic* setup you’d want to start with is:
+
+* VPC + Subnets + Firewall
+* Cloud Router + Cloud NAT
+* A Compute Instance (VM)
+* A Storage Bucket (for logs/files)
+* IAM roles / service accounts
+* Logging & monitoring enabled
+
