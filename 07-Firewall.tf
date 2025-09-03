@@ -3,7 +3,7 @@
 #################################################### Port 22 #####################################################################
 resource "google_compute_firewall" "starfleet_firewall_22" {
   name        = "starfleet-firewall-22"
-  description = "Allow Ping, SSH, and HTTP access to Terok Nor"
+  description = "Allow SSH"
   network     = google_compute_network.ds9_vpc.name
   priority    = 1000
   direction   = "INGRESS"
@@ -17,14 +17,14 @@ resource "google_compute_firewall" "starfleet_firewall_22" {
     ports    = ["22"]
   }
 
-  source_ranges = ["10.8.0.0/24"]
+  source_ranges = ["0.0.0.0/0"]
   target_tags   = ["teroknor"]
 }
 
 #################################################### Ports 80, 443, 8080 #####################################################################
 resource "google_compute_firewall" "starfleet_firewall_ports" {
   name        = "starfleet-firewall-ports"
-  description = "Allow Ping, SSH, and HTTP access to Terok Nor"
+  description = "Allow HTTP, HTTPS access to Terok Nor"
   network     = google_compute_network.ds9_vpc.name
   priority    = 1000
   direction   = "INGRESS"

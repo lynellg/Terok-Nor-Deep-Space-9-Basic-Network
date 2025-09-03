@@ -20,9 +20,14 @@ resource "google_compute_instance" "jadzia_public" {
   }
 
   tags = ["teroknor"]
+
+  metadata = {
+    startup-script = file("Script.sh")
+  }
+
 }
 
-#################################################### DS9 Public Instance #####################################################################
+#################################################### DS9 Private Instance #####################################################################
 resource "google_compute_instance" "worf_private" {
   name         = "lieutenant-commander-worf-vm"
   machine_type = "e2-medium"
@@ -38,9 +43,5 @@ resource "google_compute_instance" "worf_private" {
   network_interface {
     network    = google_compute_network.ds9_vpc.name
     subnetwork = google_compute_subnetwork.kira_private.name
-  }
-
-  labels = {
-    environment = "private"
   }
 }

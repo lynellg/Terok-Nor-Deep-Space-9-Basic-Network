@@ -30,3 +30,4 @@ cat <<EOF > /var/www/html/index.html
 <p><b>Network Tags:</b> $network_tags</p>
 </body></html>
 EOF
+
