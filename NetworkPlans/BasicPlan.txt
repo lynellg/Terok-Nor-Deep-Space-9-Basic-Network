@@ -1,0 +1,49 @@
+🔴 Update Script with my own touch
+🔴 VPC Service Controls
+🔴 IAM (Identity and Access Management)
+      Define who can do what
+🔴 Instance Template
+🔴 Instance Groups (MIGs)
+🔴 Internal Load Balancer
+🔴 External Load Balancer
+🔴 Cloud DNS
+🔴 Cloud Storage Buckets
+     Files
+     Logs
+     Backups
+🔴 Cloud Logging
+     Capture logs from VMs
+     LB Flow Logs (log_config)
+     NAT Logging
+     Networks
+     Services
+     VPC Flow Logs (log_config)
+🔴 Cloud Monitoring
+     Metrics
+     Dashboards
+     Alerts
+🔴 Persistent Disks
+     Block storage attached to VMs
+🔴 Cloud CDN
+🔴 Database/s
+     BigQuery
+     Cloud SQL
+     Firestore
+     Spanner
+🔴 Filestore
+🔴 Pub/Sub
+     Event driven app
+🔴 Cloud Functions
+     Event driven app
+🔴 Git
+     YAML file
+
+---
+
+Questions
+Organization / Folders / Projects – basic resource hierarchy
+Service Accounts – for workloads like VMs or apps
+
+Not Sure
+Encryption Keys (KMS) – manage sensitive data
+Security Command Center – security posture management
