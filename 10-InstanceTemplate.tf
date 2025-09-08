@@ -1,66 +1,47 @@
 #https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance_template
 
-# resource "google_compute_instance_template" "instance_template" {
-#   name_prefix  = "instance-template-"
-#   machine_type = "e2-medium"
-#   region       = "us-central1"
+#################################################### Public Template #####################################################################
+resource "google_compute_instance_template" "jadzia_public_template" {
+  name_prefix  = "jadzia-public-"
+  machine_type = "e2-medium"
+  region       = "us-central1"
 
-#   // boot disk
-#   disk {
-#     # ...
-#   }
+  disk {
+    source_image = "debian-cloud/debian-11"
+    boot         = true
+  }
 
-#   // networking
-#   network_interface {
-#     # ...
-#   }
+  network_interface {
+    network    = google_compute_network.ds9_vpc.name
+    subnetwork = google_compute_subnetwork.sisko_public.name
+    access_config {}
+  }
+  tags = ["teroknor"]
 
-#   lifecycle {
-#     create_before_destroy = true
-#   }
-# }
+  metadata = {
+    startup-script = file("Script.sh")
+  }
+  lifecycle {
+    create_before_destroy = true
+  }
+}
 
-# resource "google_compute_instance_group_manager" "instance_group_manager" {
-#   name               = "instance-group-manager"
-#   instance_template  = google_compute_instance_template.instance_template.id
-#   base_instance_name = "instance-group-manager"
-#   zone               = "us-central1-f"
-#   target_size        = "1"
-# }
+#################################################### Private Template #####################################################################
+resource "google_compute_instance_template" "worf_private_template" {
+  name_prefix  = "worf-private-"
+  machine_type = "e2-medium"
+  region       = "us-central1"
 
-# ####### Google Search
-# resource "google_compute_instance_template" "default" {
-#   name_prefix = "my-instance-template-"
-#   machine_type = "e2-medium"
-#   project = "your-gcp-project-id"
+  disk {
+    source_image = "debian-cloud/debian-11"
+    boot         = true
+  }
 
-#   disk {
-#     source_image = "debian-cloud/debian-11"
-#     disk_size_gb = 20
-#     auto_delete = true
-#     boot = true
-#   }
-
-#   network_interface {
-#     network = "default"
-#     access_config {
-#       // Ephemeral IP
-#     }
-#   }
-
-#   metadata = {
-#     startup-script = <<-EOF
-#       #!/bin/bash
-#       sudo apt-get update
-#       sudo apt-get install -y apache2
-#       sudo systemctl start apache2
-#       sudo systemctl enable apache2
-#     EOF
-#   }
-
-#   service_account {
-#     scopes = ["cloud-platform"]
-#   }
-
-#   tags = ["web-server"]
-# }
+  network_interface {
+    network    = google_compute_network.ds9_vpc.name
+    subnetwork = google_compute_subnetwork.kira_private.name
+  }
+  lifecycle {
+    create_before_destroy = true
+  }
+}

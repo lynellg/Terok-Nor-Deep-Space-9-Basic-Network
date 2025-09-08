@@ -2,7 +2,6 @@
 🔴 VPC Service Controls
 🔴 IAM (Identity and Access Management)
       Define who can do what
-🔴 Instance Template
 🔴 Instance Groups (MIGs)
 🔴 Internal Load Balancer
 🔴 External Load Balancer
@@ -35,8 +34,9 @@
      Event driven app
 🔴 Cloud Functions
      Event driven app
-🔴 Git
-     YAML file
+🔴 Git Workflows folder
+     terraform.yaml file
+     snykscan.yaml file
 
 ---
 
