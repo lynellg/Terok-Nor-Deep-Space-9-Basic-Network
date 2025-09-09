@@ -45,6 +45,6 @@ resource "google_compute_firewall" "starfleet_firewall_ports" {
 
 #Protocol "ICMP" - Pings VM, makes sure it is alive and well (for troubleshooting)
 #Port 22 - SSH
-#Port 80 - HTTP
-#Port 443 - HTTPS
-#Port 8080 - HTTP Alternate/App testing
+#Port 80 - The default port for HTTP traffic (websites)
+#Port 443 - The default port for HTTPS traffic (secure websites)
+#Port 8080 - Often used by developers and apps as a secondary HTTP port (e.g., for APIs, test servers, or internal services).
